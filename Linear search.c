@@ -1,29 +1,38 @@
 #include<stdio.h>
-int
-main ()
+int main()
 {
-  int arr[] = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
-  int i, a, b, c, d, e, pos = -1;
-  printf ("enter the number\n ");
-  scanf ("%d", &a);
-  for (i = 0; i < 10; i++)
-    {
-      if (arr[i] == a)
-	{
-	  pos = i + 1;
-	  break;
+int arr[]={1,4,6,7,10,19,22,23,30,35,39,46,49,50,52,55,61,67,70,71};
+int i,a;
+printf("enter the number\n");
+scanf("%d",&a);
+int right,left,middle=-1;
+left=0;
+right=19;
 
-	}
-    }
-  if (pos == -1)
-    {
-      printf ("not found");
+while(left<=right)//main thing of this code
+{
+middle=(left+right)/2; 
+if(a>left)
+{
+    printf("item not found %d" ,a);
+    return -1;
+}
+else if(arr[middle]==a)
+{
+printf("item is found at index no: %d\n",middle+1);
+break;
+}
+else if(arr[middle]<a)//if miiddle is less than of a then i donot need to do search the left sided value of array at all.i need to update the left side for that
+{
+left=middle+1;//updatating the left cursor
+}
 
-    }
-  else
-    {
-      printf ("found at the position of %d", pos);
+else 
+{
+right=middle-1;//no need to use any else if condition,because there is one option is available that should be higher than a then i just need to back from the middle just 1 step behind
+}
 
-    }
-  return 0;
+
+}
+return 0;
 }
