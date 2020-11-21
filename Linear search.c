@@ -5,19 +5,15 @@ int arr[]={1,4,6,7,10,19,22,23,30,35,39,46,49,50,52,55,61,67,70,71};
 int i,a;
 printf("enter the number\n");
 scanf("%d",&a);
-int right,left,middle=-1;
+int right,left,middle;
 left=0;
 right=19;
 
 while(left<=right)//main thing of this code
 {
 middle=(left+right)/2; 
-if(a>left)
-{
-    printf("item not found %d" ,a);
-    return -1;
-}
-else if(arr[middle]==a)
+
+ if(arr[middle]==a)
 {
 printf("item is found at index no: %d\n",middle+1);
 break;
@@ -31,7 +27,11 @@ else
 {
 right=middle-1;//no need to use any else if condition,because there is one option is available that should be higher than a then i just need to back from the middle just 1 step behind
 }
-
+if(a>71)
+{
+    printf("%d is not in the list",a);
+    break;
+}
 
 }
 return 0;
